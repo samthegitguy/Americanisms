@@ -31,9 +31,30 @@ client.on('ready', () => {
   });
   
 client.on('messageCreate', message => {
-  if(message.content.includes("mom") || message.content.includes("realize") || message.content.includes("mile")) {
-      message.channel.send("bozo");
-  }
+    
+    if (!message.author.bot) {
+
+        let reply;
+        let send = true;
+
+        if (message.content.includes("mile")) {
+            reply = "1.6 kilometers";
+        } else if (message.content.includes("mom")) {
+            reply = "mum";
+        } else {
+            send = false;
+        }
+
+        if (send) {
+            message.channel.send(
+                "Americanism Detected\nYour post contains one or more Americanisms. Things to fix: " + 
+                message.content +
+                "\n\nReplace with " +
+                reply +
+                "\n\nYes, I am a bot and in an experimental alpha state. If you think I missed an Americanism, let the developer of AmericanismBot know by replying to the bot's comment. Version: W-Class Tram v0.2.1a"
+            )
+        }
+    }
 });
   
  client.login(TOKEN);
