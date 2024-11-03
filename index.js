@@ -1,10 +1,12 @@
 import { REST, Routes } from 'discord.js';
 import { Client, GatewayIntentBits } from 'discord.js';
 
+import 'dotenv/config';
+
 import { Embed } from './embeds.js';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
-const TOKEN = "MTMwMjUzOTY1MTYwNDY3NjYyOA.Gg5D-F.26O1BIjjpzX7a5Zq00tjh20cEYoPB7kcTYIGzA";
+const TOKEN = process.env.TOKEN;
 const CLIENT_ID = "1302539651604676628";
 
 const commands = [
